@@ -1,0 +1,50 @@
+## @file
+##  Open a file based on what data is available in a user provided string.
+##  This can look for a file in the same directory as the executable image,
+##  It can look for it in a different folder but on the same device as the executable,
+##  or it can try to open a volume by its shell map name and look for the file there.
+##  
+##  Copyright (c) 2016, Matthew Lazarowitz. All rights reserved.<BR>
+##  This program and the accompanying materials are licensed and made available under
+##  the terms and conditions of the MIT License that accompanies this distribution.
+##
+##  Permission is hereby granted, free of charge, to any person obtaining a copy
+##  of this software and associated documentation files (the "Software"), to deal
+##  in the Software without restriction, including without limitation the rights
+##  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+##  copies of the Software, and to permit persons to whom the Software is
+##  furnished to do so, subject to the following conditions:
+##  The above copyright notice and this permission notice shall be included in all
+##  copies or substantial portions of the Software.
+##
+##  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+##  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+##  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+##  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+##  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+##  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+##  SOFTWARE.
+##
+
+[Defines]
+INF_VERSION    = 0x00010005
+BASE_NAME      = OpenFileLib
+FILE_GUID      = eb20dbcd-7660-43cd-baf8-750a7afbb03e
+MODULE_TYPE    = BASE
+VERSION_STRING = 1.0
+LIBRARY_CLASS  = OpenFileLib
+
+
+[Sources]
+  OpenFileLib.c
+
+
+[Packages]
+  MdePkg/MdePkg.dec
+
+[Protocols]
+  gEfiLoadedImageProtocolGuid
+  gEfiSimpleFileSystemProtocolGuid
+  
+[Guids]
+  gEfiFileInfoGuid
