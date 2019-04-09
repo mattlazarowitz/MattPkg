@@ -45,17 +45,20 @@ The other set of print functions creates a buffer and prints the text into that.
 
 XmlTest:
 
-This is a shell app that can be used to perform quick tests on the parser. It can take in a file name, open it, bass that on tot he parser, then put the tree through both sets of print functions to verify the parser.
+This is a shell app that can be used to perform quick tests on the parser. It can take in a file name, open it, bass that on to the parser, then put the tree through both sets of print functions to verify the parser.
 The code should be simple enough to understand reasonably quickly.
 
-
-As I get time my plan is as follows: 
-Improve documentation of the parser. 
-Improve the API for the capability that currently exists.
-Add entity reference substitution.
-Begin testing the <! elements (possibly starting with comments and CDATA with conditionals being last)
-Perform well-formedness checks.
-Consider how to support other encodings than ASCII
+TODO:
+1) Convert XML parser to use hashes rather than copies of the strings. 
+  This works fine as a parser for small documents with a single encoding onm reasonably fast systems. 
+  Using a hash table to refer to search a tree node would work better. Change nodes to point to the original document.
+  One challenge is identifying a good hashing algorithm with an even distrobution.
+  Implementing chaining shouldn't be too big a challenge.
+2) Add more tree traversal options for searching the tree directly.
+3) Improve the API overall for the capability that currently exists.
+4) Add entity reference substitution.
+5) Begin testing the <! elements (possibly starting with comments and CDATA with conditionals being last)
+6) Perform well-formedness checks.
+7) Consider how to support other encodings than ASCII (note that hashing is part of this)
 
 I would also like to expand the test app so it performs unit testing on the library's functions. 
-this will use the unit test framework found in my Github repo and I hope it serves as an example on how to use the framework.
